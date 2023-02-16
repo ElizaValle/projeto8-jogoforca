@@ -1,0 +1,80 @@
+* {
+    box-sizing: border-box;
+}
+
+.conteudo {
+    width: 90%;
+    height: 800px;
+    margin: auto;
+}
+
+.forca-btn-palavra {
+    width: 100%;
+    height: 600px;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.forca {
+    width: 500px;
+    height: 600px;
+}
+
+.forca img {
+    width: 400px;
+    height: 467px;
+    margin-top: 40px;
+}
+
+.btn-palavra {
+    width: 500px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.btn button {
+    width: 200px;
+    height: 60px;
+    margin-left: 250px;
+    background-color: #27AE60;
+    border-radius: 8px;
+    font-size: 20px;
+    color: #FFF;
+}
+
+.palavra-secreta {
+    width: 323px;
+    height: 68px;
+    margin-top: 150px;
+    margin-left: 130px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.palavra-secreta .letra {
+    margin-left: 2px;
+    padding: 2px;
+    border-bottom: 3px solid #000;
+}
+
+.letras {
+    width: 680px;
+    height: 104px;
+    margin: 70px auto;
+}
+
+.letras button {
+    width: 40px;
+    height: 40px;
+    margin-left: 12px;
+    margin-bottom: 11px;
+    background-color: #798A9F;
+    border: 1px solid #7AA7C7;
+    border-radius: 3px;
+    align-self: center;
+    cursor: pointer;
+}
