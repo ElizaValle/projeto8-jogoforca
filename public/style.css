@@ -4,7 +4,7 @@
 
 .conteudo {
     width: 90%;
-    height: 800px;
+    height: 700px;
     margin: auto;
 }
 
@@ -64,7 +64,7 @@
 .letras {
     width: 680px;
     height: 104px;
-    margin: 70px auto;
+    margin: 0 auto;
 }
 
 .letras button {
