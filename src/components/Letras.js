@@ -1,15 +1,15 @@
-const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-
-export default function Letras({ botoesHabilitados }) {
+export default function Letras({ botaoLetra, botoes}) {
     return (
         <div className="letras">
-            {alfabeto.map((letra, index) => (
-                <button 
-                    key={index} 
-                    disabled={!botoesHabilitados} 
-                    style={{backgroundColor: botoesHabilitados ? "#E1ECF4" : "#798A9F"}}
+            {botoes.map((botao, index) => (
+                <button
+                key={index}
+                disabled={!botao.habilitado}
+                style={{ backgroundColor: botao.habilitado ? "#E1ECF4" : "#798A9F" }}
+                className={ botao.habilitado ? 'letra-habilitada' : 'letra-desabilitada' }
+                onClick={() => botaoLetra(botao.letra, index)}
                 >
-                {letra}
+                    {botao.letra}
                 </button>
             ))}
         </div>
