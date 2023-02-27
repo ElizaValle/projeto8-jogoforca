@@ -10,7 +10,7 @@ import Jogo from "./components/Jogo"
 import Letras from "./components/Letras"
 import palavras  from "./palavras";
 
-const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+const alfabeto = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 const imagensForca = [forca0, forca1, forca2, forca3, forca4, forca5, forca6];
 
 export default function App() {
@@ -20,7 +20,11 @@ export default function App() {
   const [botoes, setBotoes] = useState(       /* array de objetos onde cada botão é uma letra */
     alfabeto.map((letra) => ({ letra: letra, habilitado: false }))
   );
-  const [imagemForca, setImagemForca] = useState(imagensForca[0]);   
+  const [imagemForca, setImagemForca] = useState(imagensForca[0]);  
+  //const [fimDoJogo, setFimDoJogo] = useState(false);
+  //const [resultadoDoJogo, setResultadoDoJogo] = useState("");
+
+  console.log('erros: ', erros);
 
   /* sorteia palavra aleatória do array palavras[] */
   const escolherPalavra = () => {
@@ -29,9 +33,9 @@ export default function App() {
     setLetras(new Array(randomPalavras.length).fill("_"));
     setBotoes(alfabeto.map((letra) => ({ letra: letra, habilitado: true })));
     setImagemForca(imagemForca);
+    //setFimDoJogo(false);
+    setErros(0);
   };
-
-  console.log('erros: ', erros);
 
   /* função acionada quando usuário clica em um botão de letra */
   const botaoLetra = (letra, index) => {
@@ -45,15 +49,32 @@ export default function App() {
     }
     if(acertou) {
       setLetras(novasLetras);
-      const novosBotoes = [...botoes]; /* cópia do estado de botões */
+      const novosBotoes = [...botoes];  /* cópia do estado de botões */
       novosBotoes[index].habilitado = false;
       setBotoes(novosBotoes);
     } else {
-      const novoNumeroDeErros = erros + 1;
-      setErros(novoNumeroDeErros);
-      setImagemForca(imagensForca[novoNumeroDeErros]);
-    }
-  };
+        const novoNumeroDeErros = erros + 1;
+        setErros(novoNumeroDeErros);
+        setImagemForca(imagensForca[novoNumeroDeErros]);
+      }
+    };
+
+    const palavraAdivinhada = letras.every((letra) => letra !== "_");
+
+   /*  const fimJogo = (totalDeErros) => {
+      if(totalDeErros >= 6) {
+        setLetras(palavraSorteada);
+        setResultadoDoJogo("perdeu");
+        const novosBotoes = [...botoes];  
+        novosBotoes.habilitado = false;
+        escolherPalavra();
+      } else if(!letras.includes("_")) {
+        setResultadoDoJogo("ganhou");
+        const novosBotoes = [...botoes];
+        novosBotoes.habilitado = false;
+        escolherPalavra();
+      }
+    }; */
 
   return (
     <div>
@@ -61,6 +82,9 @@ export default function App() {
         escolherPalavra={escolherPalavra} 
         letras={letras}
         imagemForca={imagemForca}
+        //fimDoJogo={fimDoJogo}
+        erros={erros}
+        palavraAdivinhada={palavraAdivinhada}
       />
       <Letras 
         botaoLetra={botaoLetra}
@@ -69,4 +93,3 @@ export default function App() {
     </div>
   );
 }
-

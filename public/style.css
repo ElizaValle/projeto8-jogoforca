@@ -4,7 +4,7 @@
 
 .conteudo {
     width: 90%;
-    height: 700px;
+    height: 650px;
     margin: auto;
 }
 
@@ -12,6 +12,7 @@
     width: 100%;
     height: 600px;
     margin: auto;
+    padding-right: 15px;
     display: flex;
     justify-content: space-around;
 }
@@ -45,7 +46,7 @@
     color: #FFF;
 }
 
-.palavra-secreta {
+.palavra-sorteada {
     width: 323px;
     height: 68px;
     margin-top: 150px;
@@ -55,10 +56,14 @@
     align-items: center;
 }
 
-.palavra-secreta .letra {
+.palavra-sorteada .letra {
     margin-left: 2px;
     padding: 2px;
     border-bottom: 3px solid #000;
+}
+
+.palavra-sorteada span {
+    font-size: 50px;
 }
 
 .letras {
@@ -72,6 +77,7 @@
     height: 40px;
     margin-left: 12px;
     margin-bottom: 11px;
+    font-size: 16px;
     background-color: #798A9F;
     border: 1px solid #7AA7C7;
     border-radius: 3px;
@@ -85,4 +91,12 @@
 
 .letra-habilitada {
     background-color: #E1ECF4;
+}
+
+.perdeu {
+    color: #FF0000;
+}
+
+.ganhou {
+    color: #27AE60;
 }
